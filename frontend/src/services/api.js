@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://127.0.0.1:5000";
+// const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://revenue-recovery-ai-fknz.onrender.com";
 
 async function request(endpoint, options = {}) {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
