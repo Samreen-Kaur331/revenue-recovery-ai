@@ -42,7 +42,7 @@ def get_db():
 # Saved ML model load karo
 model_path = os.path.join(
     os.path.dirname(__file__),
-    "..",
+    # "..",
     "model",
     "recovery_model.pkl"
 )
