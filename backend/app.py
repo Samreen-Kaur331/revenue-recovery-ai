@@ -14,18 +14,24 @@ app = Flask(__name__)
 CORS(app)
 
 # MySQL connection - credentials come from environment variables (.env), never hardcoded
-
 DB_CONFIG = dict(
     host=os.environ.get("DB_HOST", "localhost"),
+    port=int(os.environ.get("DB_PORT", 3306)),
     user=os.environ.get("DB_USER", "root"),
     password=os.environ.get("DB_PASSWORD"),
-    database=os.environ.get("DB_NAME", "revenue_recovery")
+    database=os.environ.get("DB_NAME", "revenue_recovery"),
 )
+# DB_CONFIG = dict(
+#     host=os.environ.get("DB_HOST", "localhost"),
+#     user=os.environ.get("DB_USER", "root"),
+#     password=os.environ.get("DB_PASSWORD"),
+#     database=os.environ.get("DB_NAME", "revenue_recovery")
+# )
 
 # Quick check at startup so we fail fast with a clear message if MySQL is down.
-_startup_conn = mysql.connector.connect(**DB_CONFIG)
-_startup_conn.close()
-print("MySQL connected successfully!")
+# _startup_conn = mysql.connector.connect(**DB_CONFIG)
+# _startup_conn.close()
+# print("MySQL connected successfully!")
 
 
 def get_db():
